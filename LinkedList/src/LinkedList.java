@@ -4,6 +4,7 @@ public class LinkedList<T> {
     private Element<T> first = null;
     private Element<T> last = null;
     private int count = 0;
+    public static final int ELEMENT_NOT_FOUND = -1;
 
     public void add(T value) {
         var element = new Element<T>(value);
@@ -35,10 +36,10 @@ public class LinkedList<T> {
         ++count;
     }
 
-    public void insert(T value, int position) throws RangeException {
+    public void insertAt(T value, int position) throws RangeException {
         checkRange(position);
 
-        Element<T> cursor = moveCursorToPosition(position);
+        Element<T> cursor = getCursorAtPosition(position);
         Element<T> element = new Element<T>(value);
 
         connectElements(cursor, element, cursor.next);
@@ -48,31 +49,58 @@ public class LinkedList<T> {
     public void remove(int position) {
         checkRange(position);
 
-        Element<T> cursor = moveCursorToPosition(position);
+        Element<T> cursor = getCursorAtPosition(position);
         disconnectElement(cursor);
         --count;
     }
 
     public void remove(T value) {
+        int i = 0;
+        Element<T> cursor = first;
+        Element<T> save = null;
 
+        while (i < count) {
+            if (cursor.value == value) {
+                save = cursor.next;
+                disconnectElement(cursor);
+                cursor = save;
+            }
+            ++i;
+        }
     }
 
     public T get(int position) {
         checkRange(position);
 
-        Element<T> cursor = moveCursorToPosition(position);
+        Element<T> cursor = getCursorAtPosition(position);
 
         return cursor.value;
     }
 
     public int findFirst(T value) {
+        int i = 0;
+        Element<T> cursor = first;
 
-        return 0;
+        while (i < count) {
+            if (cursor.value == value) {
+                return i;
+            }
+            ++i;
+        }
+        return ELEMENT_NOT_FOUND;
     }
 
     public int findLast(T value) {
+        int i = count;
+        Element<T> cursor = first;
 
-        return 0;
+        while (i > 0) {
+            if (cursor.value == value) {
+                return i;
+            }
+            --i;
+        }
+        return ELEMENT_NOT_FOUND;
     }
 
     public int size() {
@@ -107,7 +135,7 @@ public class LinkedList<T> {
         toDisconnect.prev = null;
     }
 
-    private Element<T> moveCursorToPosition(int position) {
+    private Element<T> getCursorAtPosition(int position) {
         int i = 0;
         Element<T> cursor = first;
 
