@@ -2,151 +2,174 @@ package com.marc.utils;
 
 import org.w3c.dom.ranges.RangeException;
 
-
 public class LinkedList<T> {
-    private Element<T> first = null;
-    private Element<T> last = null;
-    private int count = 0;
+    public class Element<T> {
+        public T value;
+        public Element<T> next = null;
+        public Element<T> prev = null;
+
+        public Element(T value) {
+            this.value = value;
+        }
+        public Element() {}
+
+        public void setNextElement(Element<T> element) {
+            element.next = this;
+            this.prev = element;
+            this.next = element.next;
+        }
+
+        public void setPreviousElement(Element<T> element) {
+            element.prev = this;
+            this.next = element;
+            this.prev = element.prev;
+        }
+
+        public void setPreviousAndNextElements(Element<T> elementBefore, Element<T> elementAfter) {
+            if (elementBefore != null) {
+                elementBefore.next = this;
+            }
+
+            if (elementAfter != null) {
+                elementAfter.prev = this;
+            }
+
+            this.prev = elementBefore;
+            this.next = elementAfter;
+        }
+
+        public void disconnect() {
+            if (this.prev != null) {
+                this.prev.next = this.next;
+            }
+
+            if (this.next != null) {
+                this.next.prev = this.prev;
+            }
+
+            this.next = null;
+            this.prev = null;
+        }
+    }
     public static final int ELEMENT_NOT_FOUND = -1;
 
-    public void add(T value) {
-        Element<T> element = new Element<T>(value);
-
-        if (first == null) {
-            first = element;
-        } else {
-            element.prev = last;
-            last.next = element;
-        }
-
-        last = element;
-
-        ++count;
+    private Element<T> dummyStart = new Element<>();
+    private Element<T> dummyEnd = new Element<>();
+    private int size = 0;
+    
+    public LinkedList() {
+        dummyEnd.setNextElement(dummyStart);
+        dummyStart.setPreviousElement(dummyEnd);
     }
 
-    public void push(T value) {
-        Element<T> element = new Element<T>(value);
-
-        if (first == null) {
-            last = element;
-        } else {
-            element.next = first;
-            first.prev = element;
-        }
-
-        first = element;
-
-        ++count;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
-    public void insertAt(T value, int position) throws RangeException {
-        checkRange(position);
-
-        Element<T> cursor = getCursorAtPosition(position);
-        Element<T> element = new Element<T>(value);
-
-        connectElements(cursor, element, cursor.next);
-        ++count;
+    public boolean isNotEmpty() {
+        return size > 0;
     }
 
-    public void remove(int position) {
-        checkRange(position);
+    public void addEnd(T value) {
+        Element<T> elementToAdd = new Element<T>(value);
+        elementToAdd.setPreviousAndNextElements(dummyEnd.prev, dummyEnd);
 
-        Element<T> cursor = getCursorAtPosition(position);
-        disconnectElement(cursor);
-        --count;
+        ++size;
+    }
+
+    public void addFirst(T value) {
+        Element<T> elementToAdd = new Element<T>(value);
+        elementToAdd.setPreviousAndNextElements(dummyStart, dummyStart.next);
+
+        ++size;
+    }
+
+    public void addAt(T value, int position) throws RangeException {
+        gardAgainstOutOfRangePosition(position);
+
+        Element<T> currentElementAtPosition = getElementAtPosition(position);
+        Element<T> elementToAdd = new Element<T>(value);
+        elementToAdd.setPreviousAndNextElements(currentElementAtPosition, currentElementAtPosition.next);
+
+        ++size;
+    }
+
+    public void removeAt(int position) {
+        gardAgainstOutOfRangePosition(position);
+
+        Element<T> currentElementAtPosition = getElementAtPosition(position);
+        currentElementAtPosition.disconnect();
+
+        --size;
     }
 
     public void remove(T value) {
-        int i = 0;
-        Element<T> cursor = first;
-        Element<T> save = null;
+        Element<T> currentElement = dummyStart.next;
+        Element<T> next = null;
 
-        while (i < count) {
-            if (cursor.value == value) {
-                save = cursor.next;
-                disconnectElement(cursor);
-                cursor = save;
+        while (currentElement != dummyEnd) {
+            if (currentElement.value.equals(value)) {
+                next = currentElement.next;
+                currentElement.disconnect();
+                currentElement = next;
+                --size;
+            } else {
+                currentElement = currentElement.next;
             }
-            ++i;
         }
     }
 
     public T get(int position) {
-        checkRange(position);
+        gardAgainstOutOfRangePosition(position);
 
-        Element<T> cursor = getCursorAtPosition(position);
-
-        return cursor.value;
+        return getElementAtPosition(position).value;
     }
 
     public int findFirst(T value) {
-        int i = 0;
-        Element<T> cursor = first;
+        Element<T> currentElement = dummyStart.next;
+        int position = 0;
 
-        while (i < count) {
-            if (cursor.value == value) {
-                return i;
+        while (currentElement != dummyEnd) {
+            if (currentElement.value == value) {
+                return position;
             }
-            ++i;
+            currentElement = currentElement.next;
+            ++position;
         }
         return ELEMENT_NOT_FOUND;
     }
 
     public int findLast(T value) {
-        int i = count;
-        Element<T> cursor = first;
+        Element<T> currentElement = dummyEnd.prev;
+        int position = size - 1;
 
-        while (i > 0) {
-            if (cursor.value == value) {
-                return i;
+        while (currentElement != dummyStart) {
+            if (currentElement.value == value) {
+                return position;
             }
-            --i;
+            currentElement = currentElement.prev;
+            --position;
         }
         return ELEMENT_NOT_FOUND;
     }
 
     public int size() {
-        return count;
+        return size;
     }
 
-    private void checkRange(int position) throws RangeException {
-        if (position > count) throw new RangeException(RangeException.BAD_BOUNDARYPOINTS_ERR, "Error, adding an element out of the list isn't allowed.");
+    private void gardAgainstOutOfRangePosition(int position) throws RangeException {
+        if (position > size) throw new RangeException(RangeException.BAD_BOUNDARYPOINTS_ERR, "Error, adding an element out of the list isn't allowed.");
     }
 
-    private void connectElements(Element<T> before, Element<T> between, Element<T> after) {
-        between.prev = before;
-        between.next = after;
-
-        if (before != null)
-            before.next = between;
-
-        if (after != null)
-            after.prev = between;
-    }
-
-    private void disconnectElement(Element<T> toDisconnect) {
-        if (toDisconnect.next != null) {
-            toDisconnect.next.prev = toDisconnect.prev;
-        }
-
-        if (toDisconnect.prev != null) {
-            toDisconnect.prev.next = toDisconnect.next;
-        }
-
-        toDisconnect.next = null;
-        toDisconnect.prev = null;
-    }
-
-    private Element<T> getCursorAtPosition(int position) {
+    private Element<T> getElementAtPosition(int position) {
+        Element<T> elementAtPosition = dummyStart.next;
         int i = 0;
-        Element<T> cursor = first;
 
         while (i < position) {
-            cursor = cursor.next;
+            elementAtPosition = elementAtPosition.next;
             ++i;
         }
 
-        return cursor;
+        return elementAtPosition;
     }
 }

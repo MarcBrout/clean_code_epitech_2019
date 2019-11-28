@@ -9,11 +9,11 @@ public class Main {
         LinkedList<String> words = new LinkedList<>();
 
         System.out.println("Adding words...");
-        words.add("a");
-        words.push("is");
-        words.add("Linked");
-        words.push("This");
-        words.add("List");
+        words.addEnd("a");
+        words.addFirst("is");
+        words.addEnd("Linked");
+        words.addFirst("This");
+        words.addEnd("List");
 
         System.out.println("Accessing and Testing values");
         assert words.get(0).equals("This");
