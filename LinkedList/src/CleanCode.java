@@ -19,7 +19,11 @@ public class CleanCode {
         words.add("List");
 
         logger.log(Level.ALL, "Accessing and Testing values");
-        assert
+        assert words.get(0).equals("This");
+        assert words.get(1).equals("is");
+        assert words.get(2).equals("a");
+        assert words.get(3).equals("Linked");
+        assert words.get(4).equals("List");
 
         return 0;
     }
