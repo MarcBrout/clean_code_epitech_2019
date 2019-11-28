@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/clean_code_epitech_2019.iml" filepath="$PROJECT_DIR$/.idea/clean_code_epitech_2019.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CleanCode.iml" filepath="$PROJECT_DIR$/CleanCode.iml" />
     </modules>
   </component>
 </project>

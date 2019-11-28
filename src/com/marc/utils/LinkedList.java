@@ -1,4 +1,7 @@
+package com.marc.utils;
+
 import org.w3c.dom.ranges.RangeException;
+
 
 public class LinkedList<T> {
     private Element<T> first = null;
@@ -7,7 +10,7 @@ public class LinkedList<T> {
     public static final int ELEMENT_NOT_FOUND = -1;
 
     public void add(T value) {
-        var element = new Element<T>(value);
+        Element<T> element = new Element<T>(value);
 
         if (first == null) {
             first = element;
@@ -22,7 +25,7 @@ public class LinkedList<T> {
     }
 
     public void push(T value) {
-        var element = new Element<T>(value);
+        Element<T> element = new Element<T>(value);
 
         if (first == null) {
             last = element;
