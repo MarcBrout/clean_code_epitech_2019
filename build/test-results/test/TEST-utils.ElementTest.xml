@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="utils.ElementTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-11-29T15:44:09" hostname="DESKTOP-L2R4GKN" time="0.008">
+  <properties/>
+  <testcase name="setPreviousAndNextElements()" classname="utils.ElementTest" time="0.007"/>
+  <testcase name="disconnect()" classname="utils.ElementTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

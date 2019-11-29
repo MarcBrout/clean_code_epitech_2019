@@ -1,5 +1,24 @@
 plugins {
-    id 'java'
+    id 'application'
+}
+
+apply plugin: 'checkstyle'
+
+checkstyle {
+    toolVersion '7.8.1'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+
+checkstyleMain {
+    source ='src/main/java'
+    ignoreFailures true
+    showViolations true
+}
+
+checkstyleTest {
+    source ='src/test/java'
+    ignoreFailures true
+    showViolations true
 }
 
 group 'org.example'
@@ -7,14 +26,20 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
+mainClassName = "Main"
+
 repositories {
     mavenCentral()
 }
 
 test {
     useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
 }
 
 dependencies {
     testCompile "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+    testCompile "org.mockito:mockito-core:2.+"
 }

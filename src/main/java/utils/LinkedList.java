@@ -3,56 +3,6 @@ package utils;
 import org.w3c.dom.ranges.RangeException;
 
 public class LinkedList<T> {
-
-    public class Element<T> {
-        public T value;
-        public Element<T> next = null;
-        public Element<T> prev = null;
-
-        public Element(T value) {
-            this.value = value;
-        }
-        public Element() {}
-
-        public void setNextElement(Element<T> element) {
-            element.next = this;
-            this.prev = element;
-            this.next = element.next;
-        }
-
-        public void setPreviousElement(Element<T> element) {
-            element.prev = this;
-            this.next = element;
-            this.prev = element.prev;
-        }
-
-        public void setPreviousAndNextElements(Element<T> elementBefore, Element<T> elementAfter) {
-            if (elementBefore != null) {
-                elementBefore.next = this;
-            }
-
-            if (elementAfter != null) {
-                elementAfter.prev = this;
-            }
-
-            this.prev = elementBefore;
-            this.next = elementAfter;
-        }
-
-        public void disconnect() {
-            if (this.prev != null) {
-                this.prev.next = this.next;
-            }
-
-            if (this.next != null) {
-                this.next.prev = this.prev;
-            }
-
-            this.next = null;
-            this.prev = null;
-        }
-    }
-
     public static final int ELEMENT_NOT_FOUND = -1;
 
     private Element<T> dummyStart = new Element<>();
@@ -60,8 +10,8 @@ public class LinkedList<T> {
     private int size = 0;
     
     public LinkedList() {
-        dummyEnd.setNextElement(dummyStart);
-        dummyStart.setPreviousElement(dummyEnd);
+        dummyEnd.prev = dummyStart;
+        dummyStart.next = dummyEnd;
     }
 
     public boolean isEmpty() {
@@ -89,8 +39,8 @@ public class LinkedList<T> {
     public void addAt(T value, int position) throws RangeException {
         gardAgainstOutOfRangePosition(position);
 
-        Element<T> currentElementAtPosition = getElementAtPosition(position);
-        Element<T> elementToAdd = new Element<T>(value);
+        Element<T> currentElementAtPosition = getElementAtPositionForInsertion(position);
+        Element<T> elementToAdd = new Element<>(value);
         elementToAdd.setPreviousAndNextElements(currentElementAtPosition, currentElementAtPosition.next);
 
         ++size;
@@ -99,7 +49,7 @@ public class LinkedList<T> {
     public void removeAt(int position) {
         gardAgainstOutOfRangePosition(position);
 
-        Element<T> currentElementAtPosition = getElementAtPosition(position);
+        Element<T> currentElementAtPosition = getElementAtPositionForRead(position);
         currentElementAtPosition.disconnect();
 
         --size;
@@ -124,7 +74,7 @@ public class LinkedList<T> {
     public T get(int position) {
         gardAgainstOutOfRangePosition(position);
 
-        return getElementAtPosition(position).value;
+        return getElementAtPositionForRead(position).value;
     }
 
     public int findFirst(T value) {
@@ -160,11 +110,11 @@ public class LinkedList<T> {
     }
 
     private void gardAgainstOutOfRangePosition(int position) throws RangeException {
-        if (position > size) throw new RangeException(RangeException.BAD_BOUNDARYPOINTS_ERR, "Error, adding an element out of the list isn't allowed.");
+        if (position > size || position < 0) throw new RangeException(RangeException.BAD_BOUNDARYPOINTS_ERR, "Error, adding an element out of the list isn't allowed.");
     }
 
-    private Element<T> getElementAtPosition(int position) {
-        Element<T> elementAtPosition = dummyStart.next;
+    private Element<T> getElementAtPositionFrom(Element<T> from, int position) {
+        Element<T> elementAtPosition = from;
         int i = 0;
 
         while (i < position) {
@@ -173,5 +123,13 @@ public class LinkedList<T> {
         }
 
         return elementAtPosition;
+    }
+
+    private Element<T> getElementAtPositionForInsertion(int position) {
+        return getElementAtPositionFrom(dummyStart, position);
+    }
+
+    private Element<T> getElementAtPositionForRead(int position) {
+        return getElementAtPositionFrom(dummyStart.next, position);
     }
 }
