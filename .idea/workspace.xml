@@ -1,56 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87d492cc-899a-4284-b875-530ff5c84b2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/marc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/marc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/marc/utils/Element.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/marc/utils/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/marc/utils/LinkedList.java" afterDir="false" />
-    </list>
+    <list default="true" id="2e05a30b-7fac-49ad-9e4a-bacf240196d0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
-  <component name="ProjectId" id="1UFYyGC51En06oiclCNvrHD236U" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="ProjectId" id="1UI8daLN37IHuVAtwqt7agr1bqf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/marc" />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\epitech\CleanCode\src\com\marc" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\epitech\clean_code\src\main\java" />
+      <recent name="D:\epitech\clean_code\src\main\java\utils" />
+      <recent name="D:\epitech\clean_code\src\test\java" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.marc.Main" />
-      <module name="CleanCode" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.clean_code [test]">
+    <configuration name="LinkedListTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;utils.LinkedListTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="clean_code [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.clean_code [test]" />
+        <item itemvalue="Gradle.LinkedListTest" />
       </list>
     </recent_temporary>
   </component>
@@ -71,12 +106,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="87d492cc-899a-4284-b875-530ff5c84b2d" name="Default Changelist" comment="" />
-      <created>1574954062401</created>
+      <changelist id="2e05a30b-7fac-49ad-9e4a-bacf240196d0" name="Default Changelist" comment="" />
+      <created>1575032836640</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574954062401</updated>
-      <workItem from="1574954065741" duration="7080000" />
+      <updated>1575032836640</updated>
+      <workItem from="1575032839273" duration="2301000" />
     </task>
     <servers />
   </component>
@@ -84,41 +119,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="382" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1574956933690">
+    <state x="552" y="178" key="#Project_Structure" timestamp="1575032883207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="382" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1574956933690" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1574961230955">
+    <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1575032883207" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575033111643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1574961230955" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1574961230955">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575033111643" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1575034761932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1574961230955" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1574961230955">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575034761932" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1575034761932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1574961230955" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1574961230955">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575034761932" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1575034761932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1574961230955" />
-    <state x="781" y="453" key="ReplaceDuplicatesPrompt" timestamp="1574959145617">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575034761932" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1575034761932">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="781" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040@0.0.1920.1040" timestamp="1574959145617" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1574954147652">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575034761932" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1575035141011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1574954147652" />
-    <state x="690" y="289" width="540" height="471" key="extract.method.dialog" timestamp="1574959140466">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575035141011" />
+    <state x="342" y="131" key="new project wizard" timestamp="1575033017427">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="289" width="540" height="471" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1574959140466" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1574957517911">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1574957517911" />
+    <state x="342" y="131" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1575033017427" />
   </component>
 </project>

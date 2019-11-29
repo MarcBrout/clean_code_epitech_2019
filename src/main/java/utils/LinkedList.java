@@ -1,8 +1,9 @@
-package com.marc.utils;
+package utils;
 
 import org.w3c.dom.ranges.RangeException;
 
 public class LinkedList<T> {
+
     public class Element<T> {
         public T value;
         public Element<T> next = null;
@@ -51,6 +52,7 @@ public class LinkedList<T> {
             this.prev = null;
         }
     }
+
     public static final int ELEMENT_NOT_FOUND = -1;
 
     private Element<T> dummyStart = new Element<>();

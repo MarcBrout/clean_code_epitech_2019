@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="utils.LinkedListTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2019-11-29T13:39:23" hostname="DESKTOP-L2R4GKN" time="0.026">
+  <properties/>
+  <testcase name="addEnd()" classname="utils.LinkedListTest" time="0.01"/>
+  <testcase name="addFirst()" classname="utils.LinkedListTest" time="0.0"/>
+  <testcase name="remove()" classname="utils.LinkedListTest" time="0.001"/>
+  <testcase name="findLast()" classname="utils.LinkedListTest" time="0.001"/>
+  <testcase name="removeAt()" classname="utils.LinkedListTest" time="0.0"/>
+  <testcase name="get()" classname="utils.LinkedListTest" time="0.001"/>
+  <testcase name="size()" classname="utils.LinkedListTest" time="0.0"/>
+  <testcase name="addAt()" classname="utils.LinkedListTest" time="0.0"/>
+  <testcase name="findFirst()" classname="utils.LinkedListTest" time="0.001"/>
+  <testcase name="isNotEmpty()" classname="utils.LinkedListTest" time="0.002"/>
+  <testcase name="isEmpty()" classname="utils.LinkedListTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
